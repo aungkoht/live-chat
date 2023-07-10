@@ -1,0 +1,41 @@
+*{
+   margin:0;
+   padding:0;
+   box-sizing: border-box;
+}
+
+body{
+   background-color: #e3e1ff;
+   color:#444;
+}
+
+.container{
+   width:70%;
+   max-width:960px;
+   margin:80px auto;
+   border-radius:20px;
+   box-shadow: 2px 4px 6px #aaa;
+   background:white;
+
+}
+.error{
+   background: #ff3f80;
+   font-size:14px;
+}
+
+button{
+   background: #5ae4ca;
+   font-weight:bold;
+   cursor:pointer;
+   text-decoration:none;
+   border:none;
+   padding:8px 10px;
+   border-radius:20px;
+   color:white;
+
+}
+
+form p span{
+   text-decoration:underline;
+   color:blue
+}
