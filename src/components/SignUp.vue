@@ -1,17 +1,43 @@
 <template>
    <h3>Sign up </h3>
-      <form >
-         <input type="text" placeholder="displayName">
-         <input type="email" placeholder="email">
-         <input type="password" placeholder="password">
+   <div v-if="error" class="error">{{ error }}</div>
+      <form @submit.prevent="SignUp" >
+         <input type="text" placeholder="displayName" v-model="displayName">
+         <input type="email" placeholder="email" v-model="email">
+         <input type="password" placeholder="password" v-model="password">
          <button>Create</button>
       </form>
 
 </template>
 
 <script>
+import { ref } from 'vue'
+import { auth } from '../firebase/config'
+import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth';
+import { useRouter } from 'vue-router';
 export default {
+   setup() {
+      let displayName = ref("");
+      let email = ref("");
+      let password = ref("");
+      let error = ref(null);
+      //Router
+      let router = useRouter();
 
+      let SignUp = async () => {
+         try {
+            let res = await createUserWithEmailAndPassword(auth, email.value, password.value);
+            if (res) {
+               updateProfile(res.user, { displayName: displayName.value });
+               // redirect after user is signed up and created account
+               router.push('/chatroom')
+            }
+         } catch (err) {
+            error.value = err.message
+         }
+      }
+      return { displayName, email, password, error, SignUp}
+   }
 }
 </script>
 

@@ -19,7 +19,8 @@ body{
 
 }
 .error{
-   background: #ff3f80;
+   color: #ff3f80;
+   padding:10px;
    font-size:14px;
 }
 
