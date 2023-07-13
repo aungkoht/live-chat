@@ -5,7 +5,7 @@
          <p>Do you have an account? <span @click = "showForm =! showForm">Log in </span></p>
       </div>
       <div v-else>
-         <SignIn></SignIn>
+         <Login></Login>
          <p>Are you new user? <span @click=" showForm =! showForm">Create account</span></p>
       </div>
   </div>
@@ -13,11 +13,11 @@
 
 <script>
 import { ref } from 'vue'
-import SignIn from '../components/SignIn'
+import Login from '../components/Login'
 import SignUp from '../components/SignUp'
 export default {
   components: {
-      SignIn, SignUp
+      Login, SignUp
    },
 
    setup() {
