@@ -16,7 +16,7 @@ import { auth } from '../firebase/config'
 import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth';
 import { useRouter } from 'vue-router';
 export default {
-   setup() {
+   setup(props, context) {
       let displayName = ref("");
       let email = ref("");
       let password = ref("");
@@ -30,7 +30,8 @@ export default {
             if (res) {
                updateProfile(res.user, { displayName: displayName.value });
                // redirect after user is signed up and created account
-               router.push('/chatroom')
+               // router.push('/chatroom')
+               context.emit("enterChatroom")
             }
          } catch (err) {
             error.value = err.message
