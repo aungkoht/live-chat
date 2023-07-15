@@ -17,7 +17,7 @@ import {useRouter } from "vue-router"
 
 
 export default {
-   setup(props, context) {
+   setup() {
       let email = ref("");
       let password = ref("");
       let error = ref(null);
@@ -30,10 +30,10 @@ export default {
                throw new Error("Something went wrong, Please try again.")
             }
             // redirect to chatroom page
-                  // router.push("/chatroom");
+                  router.push("/chatroom");
 
             // Instead of using useRouter, i want to use emit function( to know how to use $emit in setup function)
-               context.emit("enterChatroom")
+               // context.emit("enterChatroom")
          } catch (err) {
             error.value = "Your password is incorrect!"
             password.value = "";

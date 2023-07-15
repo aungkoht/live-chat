@@ -1,9 +1,13 @@
 <template>
-  <h1>Chatroom Page</h1>
+  <div class="contaienr">
+    <Navabar></Navabar>
+  </div>
 </template>
 
 <script>
+import Navabar from '../components/Navabar'
 export default {
+  components: { Navabar },
 
 }
 </script>
